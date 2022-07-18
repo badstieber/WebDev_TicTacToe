@@ -8,13 +8,13 @@ section {
     text-align: center;
 }
 
-.game_title {
+.gameTitle {
     font-size: 100px;
     color: aqua;
     margin: 10px auto;
 }
 
-.game_container {
+.gameContainer {
     display: grid;
     grid-template-columns: repeat(3, auto);
     width: 311px;
@@ -23,7 +23,7 @@ section {
     color: greenyellow;
 }
 
-.game_cell {
+.gameCell {
     font-family: "Permanent Marker", cursive;
     width: 100px;
     height: 100px;
@@ -34,13 +34,13 @@ section {
     cursor: pointer;
 }
 
-.game_status {
+.gameStatus {
     font-size: 50px;
     color: rgb(25, 90, 90);
     margin: 20px auto;
 }
 
-.game_restart_btn {
+.gameRestartButton {
     background-color: aqua;
     width: 200px;
     height: 50px;

@@ -1,4 +1,4 @@
-const statusDisplay = document.getElementById("game_status");
+const statusDisplay = document.getElementById("gameStatus");
 
 let gameActive = true;
 const playerX = "X";
@@ -40,15 +40,15 @@ function handleCellClick(clickedCellEvent) {
 }
 
 function handleRestartGame() {
-    document.querySelectorAll(".game_cell").forEach( (cell) => {
+    document.querySelectorAll(".gameCell").forEach( (cell) => {
         cell.innerHTML = "-";
     });
 }
 
 
 
-document.querySelectorAll(".game_cell").forEach((cell) => {
+document.querySelectorAll(".gameCell").forEach((cell) => {
     cell.addEventListener("mouseover", handleCellClick)
 });
 
-document.querySelector(".game_restart_btn").addEventListener("click", handleRestartGame);
+document.querySelector(".gameRestartButton").addEventListener("click", handleRestartGame);
