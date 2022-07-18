@@ -33,10 +33,12 @@ function handleCellPlayed(clickedCell, clickedCellIndex) {
 
 function handleCellClick(clickedCellEvent) {
     const clickedCell = clickedCellEvent.target;
-    const clickedCellIndex = clickedCell.getAttribute("data-cell-index");
-    console.log("=== ", clickedCellIndex)
+    const clickedCellIndex = clickedCell.getAttribute("data-cellIndex").replace(/,/g, "");
+    const row = clickedCellIndex[0];
+    const column = clickedCellIndex[1];
+    console.log("=== clickedCellIdex:\n", clickedCellIndex)
 
-    clickedCell.innerHTML = clickedCellIndex;
+    clickedCell.innerHTML = row + column;
 }
 
 function handleRestartGame() {
@@ -46,9 +48,9 @@ function handleRestartGame() {
 }
 
 
-
+// Add Event Listeners:
 document.querySelectorAll(".gameCell").forEach((cell) => {
-    cell.addEventListener("mouseover", handleCellClick)
+    cell.addEventListener("click", handleCellClick)
 });
 
 document.querySelector(".gameRestartButton").addEventListener("click", handleRestartGame);
