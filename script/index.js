@@ -1,5 +1,8 @@
 const statusDisplay = document.querySelector(".game--status");
 
+const cv = document.querySelector(".game__board__cell").textContent;
+console.log("asdf", typeof cv)
+
 let gameActive = true;
 const playerX = {
     name: "Badstieber",
@@ -19,21 +22,9 @@ let gameState = [
 
 const winningMessage = () => { return `${currentPlayer.name} has won!` };
 const drawMessage = () => { return `Game ended in a draw!` };
-const currentPlayerTurnMessage = () => { return `It's ${currentPlayer.name}'s (${currentPlayer.symbol}) turn `};
+const currentPlayerTurnMessage = () => { return `It's ${currentPlayer.name}'s (${currentPlayer.symbol}) turn ` };
 
-statusDisplay.innerHTML = currentPlayerTurnMessage();
-
-const winningConditions = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-];
-
+statusDisplay.textContent = currentPlayerTurnMessage();
 
 function handleGameMove(clickedCellEvent) {
     // if game is not active do nothing
@@ -42,6 +33,12 @@ function handleGameMove(clickedCellEvent) {
     }
 
     const clickedCell = clickedCellEvent.target;
+    const cellValue = clickedCell.textContent;
+    // prevent overwriting cell
+    if (cellValue) {
+        return;
+    }
+
     const clickedCellIndex = clickedCell.getAttribute("data-cellIndex").replace(/,/g, "");
     const row = clickedCellIndex[0];
     const column = clickedCellIndex[1];
@@ -49,7 +46,7 @@ function handleGameMove(clickedCellEvent) {
     // update game state
     updateGameState(clickedCell);
     // draw player's symbol on game board
-    clickedCell.innerHTML = currentPlayer.symbol;
+    clickedCell.textContent = currentPlayer.symbol;
     // check winner
     const gameEnded = checkWinner();
     if (gameEnded) {
@@ -143,7 +140,7 @@ function handleRestartGame() {
 
     // reset game board view
     document.querySelectorAll(".game__board__cell").forEach((cell) => {
-        cell.innerHTML = "";
+        cell.textContent = "";
     });
 
     // reset game status view
