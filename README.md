@@ -1,3 +1,3 @@
 # WebDev_TicTacToe
 
-Simple HTML, CSS and JS TicTacToe Game
+Simple plain HTML, CSS and JS TicTacToe Game w/o any framework/lib support
